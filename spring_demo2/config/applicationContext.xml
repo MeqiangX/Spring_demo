@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+    <!-- 配置HelloSpring 将HelloSpring类交给spring容器来管理 -->
+   <!--  <bean  class="cn.springdemo.demo.HelloSpring" init-method="init" destroy-method="destory">
+    	<property name="name" value="spring_lilei"></property>
+    	<property name="age" value="22"></property>
+    	<property name="hobbits">
+    		<list>
+    			<value>篮球</value>
+    			<value>编程</value>
+    			<value>游泳</value>
+    		</list>
+    	</property>
+    	
+    	<constructor-arg name="name" value="spring_lilei"></constructor-arg>
+    	<constructor-arg name="age" value="21"></constructor-arg>
+    	<constructor-arg name="hobbits">
+    		<list>
+    			<value>篮球</value>
+    			<value>编程</value>
+    			<value>游泳</value>
+    		</list>
+    	</constructor-arg>
+    	<property name="user" ref="user"/>
+    	
+    </bean>
+    
+    配置bean user
+    <bean id="user" class="cn.springdemo.entity.User">
+    	<property name="name" value="spring_lilei"></property>
+    	<property name="age" value="22"></property>
+    	<property name="hobbits">
+    		<list>
+    			<value>篮球</value>
+    			<value>编程</value>
+    			<value>游泳</value>
+    		</list>
+    	</property>
+    </bean>
+    
+    配置userService bean
+    <bean id="userService" class="cn.springdemo.service.UserService"/> -->
+    
+    <!-- 开启注解 包扫描  扫描组件 创建bean  @Component-->
+    <context:component-scan base-package="cn.springdemo"></context:component-scan>
+    
+     <!-- 配置bean user -->
+    <bean id="user" class="cn.springdemo.entity.User">
+    	<property name="name" value="spring_lilei"></property>
+    	<property name="age" value="22"></property>
+    	<property name="hobbits">
+    		<list>
+    			<value>篮球</value>
+    			<value>编程</value>
+    			<value>游泳</value>
+    		</list>
+    	</property>
+    </bean>
+</beans>

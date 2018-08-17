@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"   
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"      
+       xmlns:context="http://www.springframework.org/schema/context"      
+       xsi:schemaLocation=" 
+       http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+	
+
+	<!-- spring_demo 核心配置文件  可以有多个 在一个配置文件中引入 集成-->
+	
+	<!-- xml 配置版的ioc di -->
+	
+	<!-- demo 配置bean -->
+	 <bean id="user" class="cn.meqiang.spring.demo.pojo.User" init-method="init"
+	 destroy-method="destory">
+		<property name="id" value="2"></property>
+		<property name="name" value="lilei"></property>
+		
+		<!-- <constructor-arg name="id" value="3"></constructor-arg>
+		<constructor-arg name="name" value="dapan"></constructor-arg> -->
+		
+		<!-- list/array/map 等数组型的属性的注入 -->
+		<property name="hobbits">
+			<list>
+				<value>篮球</value>
+				<value>游泳</value>
+				<value>编程</value>
+			</list>
+		</property>
+		
+		
+		<!-- map -->
+		<property name="identity">
+			<map>
+				<entry key="family" value="child"/>
+				<entry key="school" value="student"/>	
+				<entry key="company" value="employee"/>
+			</map>
+		</property>
+	</bean>
+	
+	<!-- 配置car的bean
+	<bean name="car" class="cn.meqiang.spring.demo.pojo.Car" scope="prototype">
+		<property name="name" value="QQ"/>
+		<property name="user" ref="user"/>
+	</bean> -->
+	
+	<!-- 注解版的ioc di -->
+	<context:component-scan base-package="cn.meqiang.spring.demo" />
+</beans>

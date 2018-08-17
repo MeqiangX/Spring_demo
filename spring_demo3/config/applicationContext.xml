@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<!-- aop demo -->
+	<!-- 配置被代理目标类 -->
+	<bean id="userService" class="cn.springaop.service.UserServiceImpl" />
+
+	<!-- 配置切面类 -->
+	<bean id="aspect" class="cn.springaop.aspect.Aspects" />
+
+	<!-- 配置aop 将被代理类 以及切面类 关联上 -->
+	<!-- <aop:config> <aop:aspect ref="aspect"> <aop:around method="log" pointcut="execution(* 
+		cn.springaop.service.UserServiceImpl.*(..))"/> <aop:after-returning method="" 
+		pointcut=""/> </aop:aspect> </aop:config> -->
+
+	<!-- 注解版aop -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+</beans>
